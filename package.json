@@ -1,0 +1,22 @@
+{
+  "name": "opencvjs-react",
+  "version": "1.0.0",
+  "description": "Using opencv.js in react",
+  "main": "OpencvjsReact.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erasta/opencvjs-react.git"
+  },
+  "keywords": [
+    "react",
+    "opencv"
+  ],
+  "author": "erasta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erasta/opencvjs-react/issues"
+  },
+  "homepage": "https://github.com/erasta/opencvjs-react#readme"
+}
