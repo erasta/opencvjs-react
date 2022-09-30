@@ -1,14 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-const OpenCvContext = createContext()
+const opencvContext = createContext();
 
-export const useOpenCv = () => {
-  return useContext(OpenCvContext);
+export const useOpencv = () => {
+  return useContext(opencvContext);
 }
 
-export const OpenCvProvider = ({ children }) => {
+export const OpencvProvider = ({ opencvVersion = '4.5.5', opencvPath = '', children }) => {
   const [theCV, setTheCV] = useState();
-  const openCvPath = './opencv.js';
 
   useEffect(() => {
     const scriptId = 'opencv-react'
@@ -27,12 +26,16 @@ export const OpenCvProvider = ({ children }) => {
 
     const scriptElement = document.createElement('script')
     scriptElement.id = scriptId
-    scriptElement.src = openCvPath || 'https://docs.opencv.org/3.4.13/opencv.js'
     scriptElement.nonce = true
     scriptElement.defer = true
     scriptElement.async = true
+    scriptElement.src = ((opencvPath !== '') ? opencvPath : `https://docs.opencv.org/${opencvVersion}/opencv.js`);
     document.body.appendChild(scriptElement)
-  }, [openCvPath])
+  }, [opencvPath])
 
-  return <OpenCvContext.Provider value={theCV}>{children}</OpenCvContext.Provider>
+  return (
+    <opencvContext.Provider value={theCV}>
+      {children}
+    </opencvContext.Provider>
+  )
 }
