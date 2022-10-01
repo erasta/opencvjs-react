@@ -2,8 +2,12 @@
   "name": "opencvjs-react",
   "version": "1.0.0",
   "description": "Using opencv.js in react",
-  "main": "OpencvjsReact.js",
+  "type": "module",
+  "source": "src/index.js",
+  "main": "dist/opencvjs-react.js",
   "scripts": {
+    "build": "microbundle-crl --no-compress",
+    "dev": "microbundle-crl watch --no-compress"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/erasta/opencvjs-react/issues"
   },
-  "homepage": "https://github.com/erasta/opencvjs-react#readme"
+  "homepage": "https://github.com/erasta/opencvjs-react#readme",
+  "dependencies": {
+    "microbundle-crl": "^0.13.11",
+    "react": "^18.2.0"
+  }
 }
